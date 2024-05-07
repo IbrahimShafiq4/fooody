@@ -1,0 +1,56 @@
+section {
+  background-image: url(./../../../../assets/images/header-bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @media (max-width: 576px) {
+    padding-top: var(--small-screen-padding-top);
+    padding-left: var(--small-screen-padding-left-right);
+    padding-right: var(--small-screen-padding-left-right);
+    font-size: var(--small-screen-font-size);
+  }
+
+  @media (min-width: 577px) and (max-width: 992px) {
+    padding-top: var(--medium-screen-padding-top);
+    padding-left: var(--medium-screen-padding-left-right);
+    padding-right: var(--medium-screen-padding-left-right);
+    font-size: var(--medium-screen-font-size);
+  }
+
+  @media (min-width: 993px) and (max-width: 1200px) {
+    padding-top: var(--large-screen-padding-top);
+    padding-left: var(--large-screen-padding-left-right);
+    padding-right: var(--large-screen-padding-left-right);
+    font-size: var(--large-screen-font-size);
+  }
+
+  @media (min-width: 1201px) {
+    padding-top: var(--extra-large-screen-padding-top);
+    padding-left: var(--extra-large-screen-padding-left-right);
+    padding-right: var(--extra-large-screen-padding-left-right);
+    font-size: var(--extra-large-screen-font-size);
+  }
+
+  h2 {
+    span {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    h2 {
+      span {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    h2 {
+      span {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

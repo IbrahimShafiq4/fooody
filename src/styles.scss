@@ -1,0 +1,671 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 0 !important;
+}
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+:root {
+  --small-screen-font-size: 1.2rem;
+  --medium-screen-font-size: 1.3rem;
+  --large-screen-font-size: 1.4rem;
+  --extra-large-screen-font-size: 1.5rem;
+
+  --small-screen-padding-top: 2rem;
+  --small-screen-padding-left-right: 1rem;
+
+  --medium-screen-padding-top: 3rem;
+  --medium-screen-padding-left-right: 2rem;
+
+  --large-screen-padding-top: 4rem;
+  --large-screen-padding-left-right: 3rem;
+
+  --extra-large-screen-padding-top: 5rem;
+  --extra-large-screen-padding-left-right: 4rem;
+
+  --background-color: #18181b;
+  --text-color: #a1a1aa;
+  --main-text-color: #4aa35a;
+
+  --card-background-color: rgba(255, 255, 255, 0.015);
+  --card-border-color: rgba(255, 255, 255, 0.1);
+  --card-box-shadow-1: rgba(0, 0, 0, 0.05);
+  --card-box-shadow-1-y: 3px;
+  --card-box-shadow-1-blur: 6px;
+  --card-box-shadow-2: rgba(0, 0, 0, 0.1);
+  --card-box-shadow-2-y: 8px;
+  --card-box-shadow-2-blur: 15px;
+  --card-label-color: #ffffff;
+  --card-icon-color: #d4d4d8;
+  --card-icon-background-color: rgba(255, 255, 255, 0.08);
+  --card-icon-border-color: rgba(255, 255, 255, 0.12);
+  --card-shine-opacity: 0.1;
+  --card-shine-gradient: conic-gradient(
+    from 205deg at 50% 50%,
+    rgba(16, 185, 129, 0) 0deg,
+    #10b981 25deg,
+    rgba(52, 211, 153, 0.18) 295deg,
+    rgba(16, 185, 129, 0) 360deg
+  );
+  --card-line-color: #2a2b2c;
+  --card-tile-color: rgba(16, 185, 129, 0.05);
+
+  --card-hover-border-color: rgba(255, 255, 255, 0.2);
+  --card-hover-box-shadow-1: rgba(0, 0, 0, 0.04);
+  --card-hover-box-shadow-1-y: 5px;
+  --card-hover-box-shadow-1-blur: 10px;
+  --card-hover-box-shadow-2: rgba(0, 0, 0, 0.3);
+  --card-hover-box-shadow-2-y: 15px;
+  --card-hover-box-shadow-2-blur: 25px;
+  --card-hover-icon-color: #34d399;
+  --card-hover-icon-background-color: rgba(52, 211, 153, 0.1);
+  --card-hover-icon-border-color: rgba(52, 211, 153, 0.2);
+  --main-transition: 0.3s linear;
+
+  --blur-opacity: 0.01;
+
+  &.light {
+    --background-color: #fafafa;
+    --text-color: #52525b;
+
+    --card-background-color: transparent;
+    --card-border-color: rgba(24, 24, 27, 0.08);
+    --card-box-shadow-1: rgba(24, 24, 27, 0.02);
+    --card-box-shadow-1-y: 3px;
+    --card-box-shadow-1-blur: 6px;
+    --card-box-shadow-2: rgba(24, 24, 27, 0.04);
+    --card-box-shadow-2-y: 2px;
+    --card-box-shadow-2-blur: 7px;
+    --card-label-color: #18181b;
+    --card-icon-color: #18181b;
+    --card-icon-background-color: rgba(24, 24, 27, 0.04);
+    --card-icon-border-color: rgba(24, 24, 27, 0.1);
+    --card-shine-opacity: 0.3;
+    --card-shine-gradient: conic-gradient(
+      from 225deg at 50% 50%,
+      rgba(16, 185, 129, 0) 0deg,
+      #10b981 25deg,
+      #edfaf6 285deg,
+      #ffffff 345deg,
+      rgba(16, 185, 129, 0) 360deg
+    );
+    --card-line-color: #e9e9e7;
+    --card-tile-color: rgba(16, 185, 129, 0.08);
+
+    --card-hover-border-color: rgba(24, 24, 27, 0.15);
+    --card-hover-box-shadow-1: rgba(24, 24, 27, 0.05);
+    --card-hover-box-shadow-1-y: 3px;
+    --card-hover-box-shadow-1-blur: 6px;
+    --card-hover-box-shadow-2: rgba(24, 24, 27, 0.1);
+    --card-hover-box-shadow-2-y: 8px;
+    --card-hover-box-shadow-2-blur: 15px;
+    --card-hover-icon-color: #18181b;
+    --card-hover-icon-background-color: rgba(24, 24, 27, 0.04);
+    --card-hover-icon-border-color: rgba(24, 24, 27, 0.34);
+
+    --blur-opacity: 0.1;
+  }
+}
+
+body {
+
+
+  &.toggle .grid * {
+    transition-duration: 0s !important;
+  }
+
+  overflow-x: hidden;
+}
+
+// Variables for default font sizes
+$default-span-font-size: 1rem; // Default font size for spans
+$default-p-font-size: 1rem; // Default font size for paragraphs
+$default-h1-font-size: 2.5rem; // Default font size for h1
+$default-h2-font-size: 2rem; // Default font size for h2
+$default-h3-font-size: 1.8rem; // Default font size for h3
+$default-h4-font-size: 1.6rem; // Default font size for h4
+$default-h5-font-size: 1.4rem; // Default font size for h5
+$default-h6-font-size: 1.2rem; // Default font size for h6
+
+// Default font sizes for spans, paragraphs, and heading elements
+span {
+  font-size: $default-span-font-size;
+}
+
+p {
+  font-size: $default-p-font-size;
+}
+
+h1 {
+  font-size: $default-h1-font-size;
+}
+
+h2 {
+  font-size: $default-h2-font-size !important;
+}
+
+h3 {
+  font-size: $default-h3-font-size;
+}
+
+h4 {
+  font-size: $default-h4-font-size;
+}
+
+h5 {
+  font-size: $default-h5-font-size;
+}
+
+h6 {
+  font-size: $default-h6-font-size;
+}
+
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  font-size: inherit; // Inherit font size from parent h element
+}
+
+// Media queries for font size adjustments on different screen sizes
+@media (max-width: 576px) {
+  span {
+    font-size: $default-span-font-size - 0.2rem; // Adjust font size for small screens
+  }
+
+  p {
+    font-size: $default-p-font-size - 0.2rem; // Adjust font size for small screens
+  }
+
+  h1 {
+    font-size: $default-h1-font-size - 0.3rem; // Adjust font size for small screens
+  }
+
+  h2 {
+    font-size: $default-h2-font-size - 0.3rem !important; // Adjust font size for small screens
+  }
+
+  h3 {
+    font-size: $default-h3-font-size - 0.2rem; // Adjust font size for small screens
+  }
+
+  h4 {
+    font-size: $default-h4-font-size - 0.2rem; // Adjust font size for small screens
+  }
+
+  h5 {
+    font-size: $default-h5-font-size - 0.2rem; // Adjust font size for small screens
+  }
+
+  h6 {
+    font-size: $default-h6-font-size - 0.2rem; // Adjust font size for small screens
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  span {
+    font-size: $default-span-font-size - 0.1rem; // Adjust font size for medium screens
+  }
+
+  p {
+    font-size: $default-p-font-size - 0.1rem; // Adjust font size for medium screens
+  }
+
+  h1 {
+    font-size: $default-h1-font-size - 0.2rem; // Adjust font size for medium screens
+  }
+
+  h2 {
+    font-size: $default-h2-font-size - 0.2rem !important; // Adjust font size for medium screens
+  }
+
+  h3 {
+    font-size: $default-h3-font-size - 0.1rem; // Adjust font size for medium screens
+  }
+
+  h4 {
+    font-size: $default-h4-font-size - 0.1rem; // Adjust font size for medium screens
+  }
+
+  h5 {
+    font-size: $default-h5-font-size - 0.1rem; // Adjust font size for medium screens
+  }
+
+  h6 {
+    font-size: $default-h6-font-size - 0.1rem; // Adjust font size for medium screens
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  span {
+    font-size: $default-span-font-size; // No adjustment for large screens
+  }
+
+  p {
+    font-size: $default-p-font-size; // No adjustment for large screens
+  }
+
+  h1 {
+    font-size: $default-h1-font-size; // No adjustment for large screens
+  }
+
+  h2 {
+    font-size: $default-h2-font-size !important; // No adjustment for large screens
+  }
+
+  h3 {
+    font-size: $default-h3-font-size; // No adjustment for large screens
+  }
+
+  h4 {
+    font-size: $default-h4-font-size; // No adjustment for large screens
+  }
+
+  h5 {
+    font-size: $default-h5-font-size; // No adjustment for large screens
+  }
+
+  h6 {
+    font-size: $default-h6-font-size; // No adjustment for large screens
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  span {
+    font-size: $default-span-font-size; // No adjustment for extra-large screens
+  }
+
+  p {
+    font-size: $default-p-font-size; // No adjustment for extra-large screens
+  }
+
+  h1 {
+    font-size: $default-h1-font-size; // No adjustment for extra-large screens
+  }
+
+  h2 {
+    font-size: $default-h2-font-size !important; // No adjustment for extra-large screens
+  }
+
+  h3 {
+    font-size: $default-h3-font-size; // No adjustment for extra-large screens
+  }
+
+  h4 {
+    font-size: $default-h4-font-size; // No adjustment for extra-large screens
+  }
+
+  h5 {
+    font-size: $default-h5-font-size; // No adjustment for extra-large screens
+  }
+
+  h6 {
+    font-size: $default-h6-font-size; // No adjustment for extra-large screens
+  }
+}
+
+@media (min-width: 1201px) {
+  span {
+    font-size: $default-span-font-size; // No adjustment for extra-extra-large screens
+  }
+
+  p {
+    font-size: $default-p-font-size; // No adjustment for extra-extra-large screens
+  }
+
+  h1 {
+    font-size: $default-h1-font-size; // No adjustment for extra-extra-large screens
+  }
+
+  h2 {
+    font-size: $default-h2-font-size !important; // No adjustment for extra-extra-large screens
+  }
+
+  h3 {
+    font-size: $default-h3-font-size; // No adjustment for extra-extra-large screens
+  }
+
+  h4 {
+    font-size: $default-h4-font-size; // No adjustment for extra-extra-large screens
+  }
+
+  h5 {
+    font-size: $default-h5-font-size; // No adjustment for extra-extra-large screens
+  }
+
+  h6 {
+    font-size: $default-h6-font-size; // No adjustment for extra-extra-large screens
+  }
+}
+
+.input-group {
+  padding: 7px 10px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #8391a1;
+
+  .input-group-text {
+    background-color: none;
+    margin-right: 5px;
+    border: none;
+    &:not(:last-child) {
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    i {
+      font-size: 18px;
+      color: #8391a1;
+    }
+  }
+
+  input {
+    border: none;
+    background-color: #f7f7f7 !important;
+    color: #8391a1 !important;
+    &::placeholder {
+      color: #8391a1;
+    }
+
+    &.form-control {
+      box-shadow: none !important;
+    }
+  }
+}
+
+.main-content-header {
+  color: #494949;
+  font-weight: bold;
+  font-size: 25px;
+
+  @media (max-width: 991px) {
+    .main-content-header {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .main-content-header {
+      font-size: 16px;
+    }
+  }
+}
+
+.main-content-text {
+  color: #49494980;
+  font-weight: 500;
+
+  @media (max-width: 991px) {
+    .main-content-header {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .main-content-header {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.5rem; // Default padding for all screens
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  transition: 0.2s linear;
+  font-size: 1.2rem;
+
+  &.primary {
+    background-color: #4aa35a;
+    color: #fff;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &.primary-outline {
+    background-color: transparent;
+    padding-inline: 1.2rem;
+    display: flex;
+    color: #4aa35a !important;
+    border: 1px solid #4aa35a;
+
+    &:hover {
+      background-color: #4aa35a !important;
+      color: #fff !important;
+    }
+  }
+
+  &.danger-outline {
+    background-color: transparent;
+    padding-inline: 1.2rem;
+    display: flex;
+    color: #dc3545 !important;
+    border: 1px solid #dc3545;
+
+    &:hover {
+      background-color: #dc3545 !important;
+      color: #fff !important;
+    }
+  }
+
+  &.dark {
+    background-color: #3a3a3d;
+    color: #fff;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &.dark-outline {
+    border: 1px solid #3a3a3d;
+    background-color: transparent;
+    color: #3a3a3d;
+
+    &:hover {
+      opacity: 0.7;
+      background-color: #3a3a3d;
+      color: #fff;
+    }
+  }
+
+  &:disabled {
+    cursor: no-drop;
+  }
+
+  // Media queries for adjusting font size and padding on different screen sizes
+  @media screen and (max-width: 576px) {
+    font-size: 1rem; // Adjusted font size for extra-small screens
+    padding: 0.5rem 1rem; // Adjusted padding for extra-small screens
+  }
+
+  @media screen and (min-width: 577px) and (max-width: 768px) {
+    font-size: 1.1rem; // Adjusted font size for small screens
+    padding: 0.6rem 1.2rem; // Adjusted padding for small screens
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 992px) {
+    font-size: 1.2rem; // Adjusted font size for medium screens
+    padding: 0.7rem 1.5rem; // Default padding for medium screens
+  }
+
+  @media screen and (min-width: 993px) and (max-width: 1200px) {
+    font-size: 1.3rem; // Adjusted font size for large screens
+    padding: 0.8rem 1.8rem; // Adjusted padding for large screens
+  }
+
+  @media screen and (min-width: 1201px) {
+    font-size: 1.4rem; // Adjusted font size for extra-large screens
+    padding: 0.9rem 2rem; // Adjusted padding for extra-large screens
+  }
+}
+
+.links {
+  a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 1.2rem;
+
+    &.main-link-color {
+      color: var(--main-text-color);
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    a {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    a {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.bg-dark-main {
+  background-color: #1f263e !important;
+}
+
+.bg-main {
+  background-color: #009247;
+}
+
+.main-transition {
+  transition: var(--main-transition);
+}
+
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background-color: var(--background-color);
+  color: #fff;
+}
+
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: rgba(0, 0, 0, 0.12);
+}
+
+.mat-mdc-text-field-wrapper,
+.mdc-text-field,
+.mdc-text-field--filled,
+.mat-mdc-text-field-wrapper:focus,
+.mdc-text-field:focus,
+.mdc-text-field--filled:focus {
+  background-color: var(--background-color) !important;
+}

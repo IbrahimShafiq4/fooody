@@ -1,0 +1,55 @@
+ngx-dropzone {
+  height: auto;
+  margin-bottom: 2rem;
+  width: fit-content;
+  padding: 0.4rem;
+
+  ngx-dropzone-label {
+    font-weight: bolder;
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    ngx-dropzone-label {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    ngx-dropzone-label {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.primary-outline {
+  font-size: 1rem;
+}
+
+.pop-up {
+  z-index: 99999999999;
+}
+
+form {
+  transition: 0.4s linear;
+}
+
+form:nth-child(1) {
+  flex: 1;
+  transform: translateX(12%);
+}
+
+form.translate-registrationForm {
+  flex: 0;
+  transform: translateX(-200%);
+}
+
+form:nth-child(2) {
+  flex: 1;
+  transform: translateX(-12%);
+}
+
+form.translate-adminForm {
+  flex: 0;
+  transform: translateX(212%);
+}

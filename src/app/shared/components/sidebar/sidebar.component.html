@@ -1,0 +1,28 @@
+<aside #aside class="overflow-hidden py-4 position-sticky vh-100" [class]="collapsed ? 'sidebar-collapsed': ''">
+  <!-- Logo -->
+  <figure class="mx-auto" [class.sidebar-collapsed]="collapsed" (click)="collapsing()" role="button">
+    <img src="./assets/images/3.svg" class="w-100" alt="logo food food-app">
+  </figure>
+  <!-- Sidebar Menu -->
+  <div class="mt-md-5 py-2 py-md-0 px-4 px-md-0">
+    <ul class="list-unstyled d-flex flex-md-column justify-content-center justify-content-md-start gap-md-3 gap-2 mb-0">
+      <!-- Loop through menu items -->
+      <ng-container *ngFor="let item of menu">
+        <!-- Display active menu items -->
+        <li *ngIf="item.isActive" routerLinkActive="active-li">
+          <!-- Router Link -->
+          <a class="text-decoration-none d-flex text-center" [routerLink]="item.link">
+            <!-- Icon -->
+            <span>
+              <i [class]="item.icon" class="main-transition"></i>
+            </span>
+            <!-- Text with opacity transition -->
+            <span [class]="(collapsed || textLinkVisibility) ? 'opacity-0 d-none' : 'opacity-100 d-inline' "
+              class="main-transition">{{
+              item.text }}</span>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</aside>

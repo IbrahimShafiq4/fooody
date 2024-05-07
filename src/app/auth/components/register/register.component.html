@@ -1,0 +1,458 @@
+<section>
+  <!-- Start Register -->
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="content">
+      <h3 class="main-content-header">Register</h3>
+      <p class="main-content-text">Welcome! Please enter your details</p>
+    </div>
+
+    <button type="button" class="primary-outline py-1 px-2" (click)="toggleRegister = !toggleRegister"> {{ !toggleRegister ? 'Create Admin' : 'Create User' }} </button>
+
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <!-- Start Registration Form -->
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)" [class]="toggleRegister ? 'translate-registrationForm' : ''">
+      <div class="row">
+
+        <!-- Start Ngx-dropzone for image -->
+        <div class="col-md-12 d-flex justify-content-center my-4">
+          <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+            <ngx-dropzone-label class="m-0">
+              <i class="fa-solid fa-camera"></i> Upload Your Image
+            </ngx-dropzone-label>
+            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" (removed)="onRemove(f)"
+              *ngFor="let f of files" [file]="f">
+              <ngx-dropzone-label></ngx-dropzone-label>
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+        </div>
+        <!-- end Ngx-dropzone for image -->
+
+        <!-- Start Username -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-user"></i>
+              </span>
+              <input type="text" formControlName="userName" class="form-control" placeholder="UserName"
+                aria-label="UserName" aria-describedby="basic-addon1" [ngClass]="{
+                'is-invalid': registerForm.get('userName')?.touched && registerForm.get('userName')?.invalid,
+                'is-valid': registerForm.get('userName')?.touched && registerForm.get('userName')?.valid }">
+
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="registerForm.get('userName')?.getError('required') && registerForm.get('userName')?.touched">
+                UserName is required
+              </div>
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="registerForm.get('userName')?.getError('minlength') && registerForm.get('userName')?.touched">
+                UserName Min Length is 3
+              </div>
+              <div class="alert alert-danger py-1 fs-6" role="alert"
+                *ngIf="registerForm.get('userName')?.getError('pattern') && registerForm.get('userName')?.touched">
+                The username format mandates that it commences with a letter and concludes with a numerical digit.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Username -->
+
+        <!-- Start Email -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+              <input type="email" formControlName="email" class="form-control" placeholder="Enter Your E-mail"
+                aria-label="email" aria-describedby="basic-addon1" [ngClass]="{
+                'is-invalid': registerForm.get('email')?.touched && registerForm.get('email')?.invalid,
+                'is-valid': registerForm.get('email')?.touched && registerForm.get('email')?.valid }">
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="registerForm.get('email')?.getError('required') && registerForm.get('email')?.touched">
+                E-Mail is required
+              </div>
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="registerForm.get('email')?.getError('email') && registerForm.get('email')?.touched">
+                E-Mail is Invalid
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Email -->
+
+        <!-- Start Country -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-globe-africa"></i>
+              </span>
+              <input type="text" formControlName="country" class="form-control" placeholder="country"
+                aria-label="country" aria-describedby="basic-addon1" [ngClass]="{
+                'is-invalid': registerForm.get('country')?.touched && registerForm.get('country')?.invalid,
+                'is-valid': registerForm.get('country')?.touched && registerForm.get('country')?.valid }">
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="registerForm.get('country')?.getError('required') && registerForm.get('country')?.touched">
+                E-Mail is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Country -->
+
+        <!-- Start Phone Number -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-phone"></i>
+              </span>
+              <input type="text" formControlName="phoneNumber" class="form-control" placeholder="phoneNumber"
+                aria-label="phoneNumber" aria-describedby="basic-addon1" [ngClass]="{
+                'is-invalid': registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.invalid,
+                'is-valid': registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.valid }">
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="registerForm.get('phoneNumber')?.getError('required') && registerForm.get('phoneNumber')?.touched">
+                Phone Number is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Phone Number -->
+
+        <!-- Start Password -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <input [type]="!passwordVisibilityToggle[0] ? 'password' : 'text'" formControlName="password"
+                class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"
+                [ngClass]="{
+                'is-invalid': registerForm.get('password')?.touched && registerForm.get('password')?.invalid,
+                'is-valid': registerForm.get('password')?.touched && registerForm.get('password')?.valid }">
+              <span class="input-group-text" id="basic-addon1" role="button"
+                (click)="!passwordVisibilityToggle[0] = !passwordVisibilityToggle[0]">
+                <i class="fa-solid" [class]="!passwordVisibilityToggle[0] ? 'fa-eye' : 'fa-eye-slash'"></i>
+              </span>
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="registerForm.get('password')?.getError('required') && registerForm.get('password')?.touched">
+                Password is required
+              </div>
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="registerForm.get('password')?.getError('email') && registerForm.get('password')?.touched">
+                Password is Invalid
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Password -->
+
+        <!-- Start Confirm Password -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <input [type]="!passwordVisibilityToggle[1] ? 'password' : 'text'" formControlName="confirmPassword"
+                class="form-control" placeholder="Confirm Password" aria-label="confirmPassword"
+                aria-describedby="basic-addon1"
+                [ngClass]="{
+                'is-invalid': registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.invalid,
+                'is-valid': registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.valid }">
+              <span class="input-group-text" id="basic-addon1" role="button"
+                (click)="!passwordVisibilityToggle[1] = !passwordVisibilityToggle[1]">
+                <i class="fa-solid" [class]="!passwordVisibilityToggle[1] ? 'fa-eye' : 'fa-eye-slash'"></i>
+              </span>
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="registerForm.get('confirmPassword')?.getError('required') && registerForm.get('confirmPassword')?.touched">
+                Confirm Password is required.
+              </div>
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="registerForm.get('confirmPassword')?.getError('passwordMismatch') && registerForm.get('confirmPassword')?.touched">
+                The password and confirmPassword fields do not match.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Confirm Password -->
+      </div>
+
+      <div class="links d-flex justify-content-between align-items-center">
+        <a [routerLink]="['/auth']" role="button">Login Now ?</a>
+        <a #codeLink class="main-link-color" (click)="openPopUp = !openPopUp" role="button">Have a Code ?</a>
+      </div>
+
+      <button class="primary d-block mt-5 w-100" [disabled]="registerForm.invalid">Register</button>
+    </form>
+    <!-- End Registration form -->
+
+    <!-- Start Registration Form -->
+    <form [formGroup]="adminForm" (ngSubmit)="onCreateAdmin(adminForm)" [class]="toggleRegister ? '' : 'translate-adminForm'">
+      <div class="row">
+
+        <!-- Start Ngx-dropzone for image -->
+        <div class="col-md-12 d-flex justify-content-center my-4">
+          <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+            <ngx-dropzone-label class="m-0">
+              <i class="fa-solid fa-camera"></i> Upload Your Image
+            </ngx-dropzone-label>
+            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" (removed)="onRemove(f)"
+              *ngFor="let f of files" [file]="f">
+              <ngx-dropzone-label></ngx-dropzone-label>
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+        </div>
+        <!-- end Ngx-dropzone for image -->
+
+        <!-- Start Username -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-user"></i>
+              </span>
+              <input type="text" formControlName="userName" class="form-control" placeholder="UserName"
+                aria-label="UserName" aria-describedby="basic-addon1" [ngClass]="{
+                'is-invalid': adminForm.get('userName')?.touched && adminForm.get('userName')?.invalid,
+                'is-valid': adminForm.get('userName')?.touched && adminForm.get('userName')?.valid }">
+
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="adminForm.get('userName')?.getError('required') && adminForm.get('userName')?.touched">
+                UserName is required
+              </div>
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="adminForm.get('userName')?.getError('minlength') && adminForm.get('userName')?.touched">
+                UserName Min Length is 3
+              </div>
+              <div class="alert alert-danger py-1 fs-6" role="alert"
+                *ngIf="adminForm.get('userName')?.getError('pattern') && adminForm.get('userName')?.touched">
+                The username format mandates that it commences with a letter and concludes with a numerical digit.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Username -->
+
+        <!-- Start Email -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+              <input type="email" formControlName="email" class="form-control" placeholder="Enter Your E-mail"
+                aria-label="email" aria-describedby="basic-addon1" [ngClass]="{
+                'is-invalid': adminForm.get('email')?.touched && adminForm.get('email')?.invalid,
+                'is-valid': adminForm.get('email')?.touched && adminForm.get('email')?.valid }">
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="adminForm.get('email')?.getError('required') && adminForm.get('email')?.touched">
+                E-Mail is required
+              </div>
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="adminForm.get('email')?.getError('email') && adminForm.get('email')?.touched">
+                E-Mail is Invalid
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Email -->
+
+        <!-- Start Country -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-globe-africa"></i>
+              </span>
+              <input type="text" formControlName="country" class="form-control" placeholder="country"
+                aria-label="country" aria-describedby="basic-addon1" [ngClass]="{
+                'is-invalid': adminForm.get('country')?.touched && adminForm.get('country')?.invalid,
+                'is-valid': adminForm.get('country')?.touched && adminForm.get('country')?.valid }">
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="adminForm.get('country')?.getError('required') && adminForm.get('country')?.touched">
+                E-Mail is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Country -->
+
+        <!-- Start Phone Number -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-phone"></i>
+              </span>
+              <input type="text" formControlName="phoneNumber" class="form-control" placeholder="phoneNumber"
+                aria-label="phoneNumber" aria-describedby="basic-addon1" [ngClass]="{
+                'is-invalid': adminForm.get('phoneNumber')?.touched && adminForm.get('phoneNumber')?.invalid,
+                'is-valid': adminForm.get('phoneNumber')?.touched && adminForm.get('phoneNumber')?.valid }">
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="adminForm.get('phoneNumber')?.getError('required') && adminForm.get('phoneNumber')?.touched">
+                Phone Number is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Phone Number -->
+
+        <!-- Start Password -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <input [type]="!passwordVisibilityToggle[0] ? 'password' : 'text'" formControlName="password"
+                class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"
+                [ngClass]="{
+                'is-invalid': adminForm.get('password')?.touched && adminForm.get('password')?.invalid,
+                'is-valid': adminForm.get('password')?.touched && adminForm.get('password')?.valid }">
+              <span class="input-group-text" id="basic-addon1" role="button"
+                (click)="!passwordVisibilityToggle[0] = !passwordVisibilityToggle[0]">
+                <i class="fa-solid" [class]="!passwordVisibilityToggle[0] ? 'fa-eye' : 'fa-eye-slash'"></i>
+              </span>
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="adminForm.get('password')?.getError('required') && adminForm.get('password')?.touched">
+                Password is required
+              </div>
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="adminForm.get('password')?.getError('email') && adminForm.get('password')?.touched">
+                Password is Invalid
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Password -->
+
+        <!-- Start Confirm Password -->
+        <div class="col-lg-6 col-12">
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <input [type]="!passwordVisibilityToggle[1] ? 'password' : 'text'" formControlName="confirmPassword"
+                class="form-control" placeholder="Confirm Password" aria-label="confirmPassword"
+                aria-describedby="basic-addon1" [ngClass]="{
+                'is-invalid': adminForm.get('confirmPassword')?.touched && adminForm.get('confirmPassword')?.invalid,
+                'is-valid': adminForm.get('confirmPassword')?.touched && adminForm.get('confirmPassword')?.valid }">
+              <span class="input-group-text" id="basic-addon1" role="button"
+                (click)="!passwordVisibilityToggle[1] = !passwordVisibilityToggle[1]">
+                <i class="fa-solid" [class]="!passwordVisibilityToggle[1] ? 'fa-eye' : 'fa-eye-slash'"></i>
+              </span>
+            </div>
+            <div class="my-3">
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="adminForm.get('confirmPassword')?.getError('required') && adminForm.get('confirmPassword')?.touched">
+                Confirm Password is required.
+              </div>
+              <div class="alert alert-danger py-1" role="alert"
+                *ngIf="adminForm.get('confirmPassword')?.getError('passwordMismatch') && adminForm.get('confirmPassword')?.touched">
+                The password and confirmPassword fields do not match.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Confirm Password -->
+      </div>
+
+      <div class="links d-flex justify-content-between align-items-center">
+        <a [routerLink]="['/auth']" role="button">Login Now ?</a>
+        <a #codeLink class="main-link-color" (click)="openPopUp = !openPopUp" role="button">Have a Code ?</a>
+      </div>
+
+      <button class="primary d-block mt-5 w-100" [disabled]="adminForm.invalid">Create Admin</button>
+    </form>
+    <!-- End Registration form -->
+  </div>
+
+  <!-- verification popup -->
+  <div
+    class="pop-up position-absolute top-0 start-0 bg-black bg-opacity-50 w-100 vh-100 d-flex justify-content-center align-items-center"
+    *ngIf="openPopUp">
+    <div class="pop-up-message bg-white rounded-4 p-4">
+      <p class="text-start fw-bolder">
+        Hi {{ userName ? userName : '' }} You Need to Verify Your Account
+      </p>
+      <form [formGroup]="verifyForm" (ngSubmit)="onVerify(verifyForm)">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="contentBx">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fa-solid fa-envelope"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Enter your E-mail" formControlName="email"
+                  [ngClass]="{
+                              'is-invalid': verifyForm.get('email')?.touched && verifyForm.get('email')?.invalid,
+                              'is-valid': verifyForm.get('email')?.touched && verifyForm.get('email')?.valid}">
+              </div>
+              <p class="alert alert-danger py-1"
+                *ngIf="verifyForm.get('email')?.touched && verifyForm.get('email')?.getError('required')">
+                E-Mail is required
+              </p>
+              <p class="alert alert-danger py-1"
+                *ngIf="verifyForm.get('email')?.touched && verifyForm.get('email')?.getError('email')">
+                E-Mail is Invalid
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="contentBx">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fa-solid fa-key"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Code" formControlName="code" [ngClass]="{
+                                        'is-invalid': verifyForm.get('otp')?.touched && verifyForm.get('otp')?.invalid,
+                                        'is-valid': verifyForm.get('otp')?.touched && verifyForm.get('otp')?.valid}">
+              </div>
+              <p class="alert alert-danger py-1"
+                *ngIf="verifyForm.get('otp')?.touched && verifyForm.get('otp')?.getError('required')">
+                Code is required
+              </p>
+              <p class="alert alert-danger py-1"
+                *ngIf="verifyForm.get('otp')?.touched && verifyForm.get('otp')?.getError('minLength') || verifyForm.get('code')?.getError('maxLength')">
+                Code MaxLength and MinLength is 4 </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <button type="button" class="px-3 py-1 dark-outline" (click)="openPopUp = !openPopUp">close</button>
+          <button class="px-3 py-1 primary">OK</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
